@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server 8080)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :8080)",
+      "Bash(npm run *)",
+      "Bash(npx prisma *)",
+      "mcp__playwright"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)"
+    ],
+    "ask": [],
+    "defaultMode": "plan" 
+  },
+  "enabledMcpjsonServers": [
+    "memory",
+    "github",
+    "playwright"
+  ],
+  "enableAllProjectMcpServers": true,
+  "plansDirectory": ".claude/plans/" 
+}  
