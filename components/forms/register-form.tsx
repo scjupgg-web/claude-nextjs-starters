@@ -22,9 +22,9 @@ export function RegisterForm() {
     defaultValues: { name: "", email: "", password: "", confirmPassword: "" },
   })
 
-  function onSubmit(data: RegisterInput) {
+  function onSubmit(_data: RegisterInput) {
     toast.success("회원가입 성공! (데모)")
-    console.log(data)
+    // TODO: 실제 회원가입 API 연동
   }
 
   return (

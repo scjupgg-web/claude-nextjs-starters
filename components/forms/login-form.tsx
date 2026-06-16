@@ -22,9 +22,9 @@ export function LoginForm() {
     defaultValues: { email: "", password: "" },
   })
 
-  function onSubmit(data: LoginInput) {
+  function onSubmit(_data: LoginInput) {
     toast.success("로그인 성공! (데모)")
-    console.log(data)
+    // TODO: 실제 인증 API 연동
   }
 
   return (
