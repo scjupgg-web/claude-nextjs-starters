@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
@@ -48,7 +49,15 @@ export function LoginForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>비밀번호</FormLabel>
+              <div className="flex items-center justify-between">
+                <FormLabel>비밀번호</FormLabel>
+                <Link
+                  href="/forgot-password"
+                  className="text-xs text-muted-foreground underline-offset-4 hover:underline"
+                >
+                  비밀번호를 잊으셨나요?
+                </Link>
+              </div>
               <FormControl>
                 <Input placeholder="••••••••" type="password" {...field} />
               </FormControl>
@@ -64,7 +73,7 @@ export function LoginForm() {
           {form.formState.isSubmitting && (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           )}
-          로그인
+          로그인하기
         </Button>
       </form>
     </Form>
