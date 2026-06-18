@@ -7,6 +7,8 @@ SCRIPT_DIR="$(dirname "$0")"
 
 INPUT=$(cat)
 
+MESSAGE=$(echo "$INPUT" | jq -r '.hook_event_name // ""')
+
 SESSION_ID=$(echo "$INPUT" | python -c "
 import json, sys
 data = json.load(sys.stdin)
@@ -54,7 +56,7 @@ MSG_TEXT="${SUMMARY:-작업이 완료되었습니다.}"
 
 send_slack_message \
     "✅ Claude Code 작업 완료" \
-    "*세션:* \`$SESSION_ID\`\n*요약:* $MSG_TEXT" \
+    "*세션:* \`$SESSION_ID\`\n*요약:* $MSG_TEXT\n*메시지:* $MESSAGE" \
     "good"
 
 exit 0
