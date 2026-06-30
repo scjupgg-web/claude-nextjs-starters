@@ -1,8 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { signIn } from "next-auth/react"
 import { Loader2 } from "lucide-react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
@@ -18,14 +20,24 @@ import { Input } from "@/components/ui/input"
 import { loginSchema, type LoginInput } from "@/lib/validations/auth"
 
 export function LoginForm() {
+  const router = useRouter()
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "" },
   })
 
-  function onSubmit(_data: LoginInput) {
-    toast.success("로그인 성공! (데모)")
-    // TODO: 실제 인증 API 연동
+  async function onSubmit(data: LoginInput) {
+    const result = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    })
+
+    if (result?.error) {
+      toast.error("이메일 또는 비밀번호가 올바르지 않습니다.")
+    } else {
+      router.push("/dashboard/invoices")
+    }
   }
 
   return (

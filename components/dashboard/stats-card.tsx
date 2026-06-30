@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import type { StatsCardData } from "@/types"
+import type { StatsCardData } from "@/lib/types"
 
 const TREND_CONFIG = {
   up: { icon: TrendingUp, className: "text-green-600 dark:text-green-400" },

@@ -58,3 +58,10 @@ app/
 ### Next.js 버전 주의
 
 이 프로젝트는 Next.js 16으로, 훈련 데이터의 API와 다를 수 있음. 코드 작성 전 `node_modules/next/dist/docs/`의 관련 가이드를 먼저 확인할 것.
+
+
+### 작업 완료 체크리스트
+```bash
+npm run check-all
+npm run build
+```

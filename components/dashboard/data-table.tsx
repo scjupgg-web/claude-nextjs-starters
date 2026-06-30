@@ -23,7 +23,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import type { User } from "@/types"
+import type { User } from "@/lib/types"
 
 const SAMPLE_USERS: User[] = [
   { id: "1", name: "김민준", email: "minjun@example.com", role: "admin", status: "active", createdAt: "2024-01-15" },
