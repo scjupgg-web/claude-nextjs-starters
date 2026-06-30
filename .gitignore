@@ -40,3 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .playwright-mcp/
+
+# local-only artifacts
+.claude/settings.local.json
+.claude/agent-memory/
+test-hooks-logs.txt
+shrimp_data/
+shrimp-rules.md
+*.csv
